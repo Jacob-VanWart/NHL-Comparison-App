@@ -25,13 +25,13 @@ class PlayerAssign():
         self.shootoutattempt = shootoutattempt.string
 
     def comparison(self, name):
-        compare_array = ["COMPARISON ", " ", " ", abs(self.GP - name.GP), abs(self.goals - name.goals),
-                         abs(self.assists - name.assists), abs(self.points - name.points),
-                         abs(self.plusminus - name.plusminus), abs(self.pim - name.pim), abs(self.sog - name.sog),
-                         abs(self.shootpct - name.shootpct), abs(self.gwg - name.gwg), abs(self.avgtoi - name.avgtoi),
-                         abs(self.ppg - name.ppg), abs(self.ppa - name.ppa), abs(self.shgoal - name.shgoal),
-                         abs(self.shassist - name.shassist), abs(self.shootoutgoal - name.shootoutgoal),
-                         abs(self.shootoutattempt - name.shootoutattempt)]
+
+        compare_array = ["Difference", str(abs(int(self.GP) - int(name.GP))), str(abs(int(self.goals) - int(name.goals))),
+                         str(abs(int(self.assists) - int(name.assists))), str(abs(int(self.points) - int(name.points))),
+                         str(abs(int(self.plusminus) - int(name.plusminus))), str(abs(int(self.pim) - int(name.pim))), str(abs(int(self.sog) - int(name.sog))),
+                         str(abs(round(float(self.shootpct) - float(name.shootpct),2))), str(abs(int(self.gwg) - int(name.gwg))), "TBD",
+                         str(abs(int(self.ppg) - int(name.ppg))), str(abs(int(self.ppa) - int(name.ppa))), str(abs(int(self.shgoal) - int(name.shgoal))),
+                         str(abs(int(self.shassist) - int(name.shassist)))]
         return compare_array
 
     def Table(self, name):

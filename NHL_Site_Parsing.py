@@ -4,7 +4,8 @@ from PlayerAssign import PlayerAssign
 
 def NHL_Comparison_Offline(Player1,Player2):
     name = []
-
+    last1=""
+    last2=""
     wiki = "http://www.cbssports.com/nhl/stats/playersort/nhl/year-2016-season-regularseason-category-points?print_rows=9999"
     page = requests.get(wiki)
 
@@ -22,9 +23,9 @@ def NHL_Comparison_Offline(Player1,Player2):
 
 
     for i in range(len(name)):
-        if Player1.lower() == name[i].name.lower():
+        if Player1.lower() == name[i].name.lower() or Player1.lower() == name[i].name.split()[1].lower():
             num1=i
-        if Player2.lower() == name[i].name.lower():
+        if Player2.lower() == name[i].name.lower() or Player2.lower() == name[i].name.split()[1].lower():
             num2=i
 
     return name[num1],name[num2]

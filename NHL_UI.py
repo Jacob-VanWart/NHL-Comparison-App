@@ -54,9 +54,10 @@ class MainWidget(FloatLayout):
         row2=[self.stat2.name, self.stat2.GP, self.stat2.goals, self.stat2.assists, self.stat2.points,
                          self.stat2.plusminus, self.stat2.pim, self.stat2.sog, self.stat2.shootpct, self.stat2.gwg, self.stat2.avgtoi, self.stat2.ppg, self.stat2.ppa,
                          self.stat2.shgoal, self.stat2.shassist]
+        compare = self.stat1.comparison(self.stat2)
         with self.canvas:
             Color(0.2,0.2,1,1)
-            self.rect= Rectangle(size=(1180,150), pos=(12,190))
+            self.rect= Rectangle(size=(1180,170), pos=(12,190))
         for i in range(0,15):
             if i==0:
                 head = Label(text=header[i], bold=True,size_hint_x=None, width=100)
@@ -68,14 +69,19 @@ class MainWidget(FloatLayout):
                 grid.add_widget(head)
 
         for n in range(0, 15):
-            r1 = Label(text=row1[n], bold=True, size_hint=(0.01, 1))
+            r1 = Label(text=row1[n], size_hint=(0.01, 1))
             r1.bind(size=r1.setter("text_size"))
             grid.add_widget(r1)
-
         for j in range(0, 15):
-            r2 = Label(text=row2[j], bold=True, size_hint=(0.01, 1))
+            r2 = Label(text=row2[j], size_hint=(0.01, 1))
             r2.bind(size=r2.setter("text_size"))
             grid.add_widget(r2)
+        for k in range(0, 15):
+            r3 = Label(text=compare[k], size_hint=(0.01, 1))
+            r3.bind(size=r3.setter("text_size"))
+            grid.add_widget(r3)
+
+
 
         self.add_widget(grid)
 
